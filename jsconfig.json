@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "paths": {
+      "@yid/config": ["./src/config/index"],
+      "@yid/helpers": ["./src/lib/helper/index"],
+      "@yid/services": ["./src/services/index"],
+      "@yid/handlers": ["./src/lib/handler/index"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

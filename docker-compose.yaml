@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  stg:
+    env_file:
+      - .env
+    links:
+      - db
+    environment:
+      NODE_ENV: development
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: db_music
+      DB_USER: myapp
+      DB_PASS: mysecurepass
+      DB_DIALECT: mysql
+    image: frontend_music_app:${TAG}
+    container_name: music_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+  db:
+    image: mysql:8
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: db_music
+      MYSQL_USER: myapp
+      MYSQL_PASSWORD: mysecurepass
+      MYSQL_ROOT_PASSWORD: securerootpass
